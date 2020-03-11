@@ -3,21 +3,43 @@
 @push('css')
 
 @endpush
+
 @section('conteudo')
-    <div style="text-align: center;">
+    <style>
+        div.form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form{
+            width: 500px;
+        }
+        form label{
+            font-size: 20px;
+        }
+        div.button{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    </style>
+    <div class="form">
         <h1>Cadastro de cliente</h1>
         <form action="">
             <label>Nome</label>
-            <input type="text" placeholder="Insira seu nome..." />
+            <input class="form-control" type="text" placeholder="Insira seu nome..." />
             <br>
             <label>CPF</label>
-            <input id="cpf" type="text" name="cpf" class="cpf-mask" placeholder="Insira seu cpf..." />
+            <input class="form-control" id="cpf" type="text" name="cpf" class="cpf-mask" placeholder="Insira seu cpf..." />
             
             <br>
             <label>Endereço</label>
-            <input type="text" placeholder="Insira seu endereço..." />
+            <input class="form-control" type="text" placeholder="Insira seu endereço..." />
             <br>
-            <input type="submit" class="btn btn-primary"></a>
+            <div class="button">
+                <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+            </div>
+            
         </form>
     </div>
 @endsection
