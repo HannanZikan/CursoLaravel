@@ -30,7 +30,7 @@
             <input class="form-control" type="text" placeholder="Insira seu nome..." />
             <br>
             <label>CPF</label>
-            <input class="form-control" id="cpf" type="text" name="cpf" class="cpf-mask" placeholder="Insira seu cpf..." />
+            <input type="text" name="cpf" class="cpf-mask form-control" placeholder="Insira seu cpf..." />
             
             <br>
             <label>Endereço</label>
