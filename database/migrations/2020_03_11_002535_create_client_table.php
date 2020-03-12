@@ -16,6 +16,10 @@ class CreateClientTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->unsignedBigInteger('id',true); /* autoincremento (true)*/
             $table->string('name');
+            $table->unsignedBigInteger('cpf');
+            $table->string('email');
+            $table->boolean('active_flag')->default(true);
+            $table->string('endereco')->nullable(); // null - por padrão os campos são not null
             $table->timestamps();
         });
     }

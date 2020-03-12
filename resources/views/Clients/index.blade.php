@@ -5,43 +5,39 @@
 @endpush
 
 @section('conteudo')
-    <style>
-        div.form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        form{
-            width: 500px;
-        }
-        form label{
-            font-size: 20px;
-        }
-        div.button{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-        }
-    </style>
-    <div class="form">
-        <h1>Cadastro de cliente</h1>
-        <form action="">
-            <label>Nome</label>
-            <input class="form-control" type="text" placeholder="Insira seu nome..." />
-            <br>
-            <label>CPF</label>
-            <input type="text" name="cpf" class="cpf-mask form-control" placeholder="Insira seu cpf..." />
-            
-            <br>
-            <label>Endereço</label>
-            <input class="form-control" type="text" placeholder="Insira seu endereço..." />
-            <br>
-            <div class="button">
-                <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
-            </div>
-            
-        </form>
+<style>
+    div.button{
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+<body>
+    <table>
+        <table class="table table-hover table-light">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach ($clients as $client)
+                    <tr>
+                        <th scope="row">{{$client->id}}</th>
+                        <td>{{$client->cpf}}</td>
+                        <td>{{$client->name}}</td>
+                        <td>{{$client->email}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+    </table>
+    <div class="button">
+        <a href="client/create" type="submit" class="btn btn-success">Adicionar</a>
     </div>
+</body>
 @endsection
 @push('scripts')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
