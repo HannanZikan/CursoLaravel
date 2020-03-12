@@ -25,16 +25,17 @@
     </style>
     <div class="form">
         <h1>Cadastro de cliente</h1>
-        <form action="./store">
+        <form action="./store" method='post'>
+            @method('PUT')
             <label>Nome</label>
-            <input class="form-control" type="text" placeholder="Insira seu nome..." />
+            <input name="name_client" class="form-control" type="text" placeholder="Insira seu nome..." />
             <br>
             <label>CPF</label>
-            <input type="text" name="cpf" class="cpf-mask form-control" placeholder="Insira seu cpf..." />
+            <input name="cpf_client" type="text" name="cpf" class="cpf-mask form-control" placeholder="Insira seu cpf..." />
             
             <br>
             <label>Endereço</label>
-            <input class="form-control" type="text" placeholder="Insira seu endereço..." />
+            <input name="endereco_client" class="form-control" type="text" placeholder="Insira seu endereço..." />
             <br>
             <div class="button">
                 <a href="./" class="btn btn-sm btn-primary">Voltar</a>

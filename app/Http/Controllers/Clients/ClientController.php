@@ -22,27 +22,35 @@ class ClientController extends Controller
 
     public function create(){
         /*
+        $name_client = $_POST['name_client'];
+        $cpf_client = $_POST['cpf_client'];
+        $endereco_client = $_POST['endereco_client'];
+
         $clientModel = app(Client::class); //instanciar a classe Client dentro da variavel
         $client = $clientModel->create([
-            'name'=>'name test2',
-            'cpf'=>98765432199,
+            'name'=> $name_client,
+            'cpf'=> $cpf_client,
             'email'=>'teste@gmail.com',
-            'active_flag'=>false
+            'endereco'=>$endereco_client
         ]);
         */
-        //return $client;
+        
         return view('Clients/create');
     }
 
     public function store(){
+        $name_client = $_POST['name_client'];
+        $cpf_client = $_POST['cpf_client'];
+        $endereco_client = $_POST['endereco_client'];
+
         $clientModel = app(Client::class); //instanciar a classe Client dentro da variavel
         $client = $clientModel->create([
-            'name'=>'name test2',
-            'cpf'=>98765432199,
+            'name'=> $name_client,
+            'cpf'=> $cpf_client,
             'email'=>'teste@gmail.com',
-            'active_flag'=>false
+            'endereco'=>$endereco_client
         ]);
-
-        return view('Clients/index');
+        
+        
     }
 }
