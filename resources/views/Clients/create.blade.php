@@ -5,6 +5,15 @@
 @endpush
 
 @section('conteudo')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <style>
         div.form{
             display: flex;
@@ -25,21 +34,27 @@
     </style>
     <div class="form">
         <h1>Cadastro de cliente</h1>
-        <form action="./store" method='post'>
-            @method('PUT')
+    <form action="{{route('clients.store')}}" method='POST'>
+            {{ csrf_field() }} <!-- token do form request-->
+            <label>Ativo: </label>
+            <input id="active_flag" name="active_flag" type="checkbox" value="{{old("active_flag")}}"/>
+            <br>
             <label>Nome</label>
-            <input name="name_client" class="form-control" type="text" placeholder="Insira seu nome..." />
+            <input id="name" name="name" class="form-control" type="text" value="{{old("name")}}" placeholder="Insira seu nome..."  />
             <br>
             <label>CPF</label>
-            <input name="cpf_client" type="text" name="cpf" class="cpf-mask form-control" placeholder="Insira seu cpf..." />
+            <input id="cpf" name="cpf" type="text" class="cpf-mask form-control" value="{{old("cpf")}}" placeholder="Insira seu cpf..." />
             
             <br>
+            <label>E-mail</label>
+            <input id="email" name="email" class="form-control" type="text" value="{{old("email")}}" placeholder="Insira seu endereço..." />
+            <br>
             <label>Endereço</label>
-            <input name="endereco_client" class="form-control" type="text" placeholder="Insira seu endereço..." />
+            <input id="endereco" name="endereco" class="form-control" type="text" value="{{old("endereco")}}" placeholder="Insira seu endereço..." />
             <br>
             <div class="button">
-                <a href="./" class="btn btn-sm btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sm btn-success">Cadastrar</button>
+                <a href="./" class="btn btn-sm btn-primary far fa-hand-point-left"> Voltar</a>
+                <button type="submit" class="btn btn-sm btn-success far fa-thumbs-up"> Cadastrar</button>
             </div>
             
         </form>

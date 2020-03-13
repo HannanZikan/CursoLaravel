@@ -3,8 +3,13 @@
 @push('css')
 
 @endpush
-
+@if (Session::has('success'))
+        toastr["success"]("<b>Sucesso: </b><br>
+        {{ Session::get('success')}}");
+    
+@endif
 @section('conteudo')
+
 <style>
     div.button{
         display: flex;
@@ -30,12 +35,16 @@
                         <td>{{$client->cpf}}</td>
                         <td>{{$client->name}}</td>
                         <td>{{$client->email}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm far fa-edit"> Editar</button>
+                            <button type="button" class="btn btn-danger btn-sm far fa-trash-alt"> Apagar</button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
     </table>
     <div class="button">
-        <a href="client/create" type="submit" class="btn btn-success">Adicionar</a>
+        <a href="client/create" type="submit" class="btn btn-success fas fa-plus"> Adicionar</a>
     </div>
 </body>
 @endsection

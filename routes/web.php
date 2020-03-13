@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/teste','TesteController@index'); /*indicando a rota dessa url amigável*/
 
-Route::resource('/client','Clients\ClientController');
+Route::resource('/client','Clients\ClientController')->names('clients');
