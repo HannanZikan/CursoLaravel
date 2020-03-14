@@ -50,10 +50,19 @@
                     </a>
                 </li>
             </ul>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                 <a class="nav-link" href="{{route('clients.index')}}">
                         <i class="nav-icon fa fa-user text-green"></i> Clientes
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="{{route('books.index')}}">
+                        <i class="nav-icon fa fa-book text-green"></i> Livros
                     </a>
                 </li>
             </ul>

@@ -70,11 +70,12 @@
     <script>
         $(".cpf-mask").mask('000.000.000-00')
 
+        // Codigo ajax pra fazer o botão de deletar
         $('.deleteButton').on('click', function (e) {
             var url = $(this).data('url');
             var idClient = $(this).data('idClient');
             $.ajaxSetup({ // Configuração do ajax
-                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}, //criar um campo de validação
+                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}, //criar um token de validação
                 method: 'DELETE', // se não passar o method delete ele entende como method = show
                 url: url // pra onde vai direcionar
             });

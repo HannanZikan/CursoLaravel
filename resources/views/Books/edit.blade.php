@@ -33,22 +33,22 @@
         }
     </style>
     <div class="form">
-        <h1>Cadastro de Livro</h1>
-    <form action="{{route('books.store')}}" method='POST'>
+        <h1>Edição de livros</h1>
+    <form action="{{route('books.update', [$book->id])}}" method='POST'>
             {{ csrf_field() }} <!-- token do form request-->
+            @method('PUT')
             <label>Nome</label>
-            <input id="name" name="name" class="form-control" type="text" value="{{old("name")}}" placeholder="Insira o nome do livro..."  />
+            <input id="name" name="name" class="form-control" type="text" value="{{old("name", $book->name)}}" placeholder="Insira o nome do livro.."  />
             <br>
             <label>Autor</label>
-            <input id="writer" name="writer" type="text" class="form-control" value="{{old("writer")}}" placeholder="Insira o nome do autor..." />
-            
+            <input id="writer" name="writer" class="form-control" type="text" value="{{old("writer", $book->writer)}}" placeholder="Insira o nome do autor.."  />
             <br>
-            <label>Nº Páginas</label>
-            <input id="page_number" name="page_number" class="form-control" type="number" value="{{old("page_number")}}" placeholder="Insira o número de páginas..." />
+            <label>N° de Páginas</label>
+            <input id="page_number" name="page_number" type="number" class="form-control" value="{{old("page_number", $book->page_number)}}" placeholder="Insira a número de páginas..." />
             <br>
             <div class="button">
-                <a href="{{ route('books.index')}}" class="btn btn-sm btn-primary far fa-hand-point-left"> Voltar</a>
-                <button type="submit" class="btn btn-sm btn-success far fa-thumbs-up"> Cadastrar</button>
+                <a href="{{route('books.index')}}" class="btn btn-sm btn-primary far fa-hand-point-left"> Voltar</a>
+                <button type="submit" class="btn btn-sm btn-success far fa-thumbs-up"> Editar</button>
             </div>
             
         </form>
@@ -61,7 +61,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-    <script>
-        $(".cpf-mask").mask('000.000.000-00')
-    </script>
 @endpush

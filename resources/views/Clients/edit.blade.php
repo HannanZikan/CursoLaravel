@@ -33,7 +33,7 @@
         }
     </style>
     <div class="form">
-        <h1>Cadastro de cliente</h1>
+        <h1>Edição de cliente</h1>
     <form action="{{route('clients.update', [$client->id])}}" method='POST'>
             {{ csrf_field() }} <!-- token do form request-->
             @method('PUT')
