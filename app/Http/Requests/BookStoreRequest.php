@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CLientStoreRequest extends FormRequest
+class BookStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class CLientStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'cpf' => 'required|min:14',
-            'email' => 'required'
+            'writer' => 'required',
+            'page_number' => 'required'
         ];
     }
 }

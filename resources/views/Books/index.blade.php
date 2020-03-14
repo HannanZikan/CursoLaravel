@@ -29,21 +29,21 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($clients as $client)
+                @foreach ($books as $book)
                     <tr>
-                        <th scope="row">{{$client->id}}</th>
-                        <td class="cpf-mask">{{$client->cpf}}</td>
-                        <td>{{$client->name}}</td>
-                        <td>{{$client->email}}</td>
+                        <th scope="row">{{$book->id}}</th>
+                        <td >{{$book->name}}</td>
+                        <td>{{$book->writer}}</td>
+                        <td>{{$book->page_number}}</td>
                         <td>
                             {{-- <button type="button" class="btn btn-primary btn-sm far fa-edit"> Editar</button> --}}
-                            <a href="{{ route('clients.edit', [ $client->id])}}"
+                            <a href="{{ route('books.edit', [ $book->id])}}"
                             class="btn btn-primary btn-sm text-white">
                                 <i class="fal fa-pencil"></i>
                                 <span class="d-none d-md-inline">Editar</span>
                             </a>
-                            {{-- Utilizar o ajax para fazer o botão de delete do cliente --}}
-                            <span data-url="{{ route('clients.destroy',[$client->id])}}" data-idClient='{{ $client->id}}'
+                            {{-- Utilizar o ajax para fazer o botão de delete do booke --}}
+                            <span data-url="{{ route('books.destroy',[$book->id])}}" data-idbook='{{ $book->id}}'
                                 class="btn btn-danger btn-sm text-white deleteButton">
                                     <i class="fal fa-trash-alt"></i>
                                     <span class="d-none d-md-inline">Apagar</span>
@@ -54,7 +54,7 @@
             </tbody>
     </table>
     <div class="button">
-        <a href="client/create" type="submit" class="btn btn-success fas fa-plus"> Adicionar</a>
+        <a href="book/create" type="submit" class="btn btn-success fas fa-plus"> Adicionar</a>
     </div>
 </body>
 
@@ -72,7 +72,7 @@
 
         $('.deleteButton').on('click', function (e) {
             var url = $(this).data('url');
-            var idClient = $(this).data('idClient');
+            var idbook = $(this).data('idbook');
             $.ajaxSetup({ // Configuração do ajax
                 headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}, //criar um campo de validação
                 method: 'DELETE', // se não passar o method delete ele entende como method = show
@@ -80,7 +80,7 @@
             });
             $.ajax({
                 data: { // informação que ta passando pro ajax
-                    'idClient': idClient,
+                    'idbook': idbook,
                 },
                 success: function (data) {
                     console.log(data);

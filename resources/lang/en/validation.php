@@ -149,7 +149,9 @@ return [
     'attributes' => [
         'cpf' => 'CPF',
         'name' => 'Nome',
-        'endereco' => 'Endereço'
+        'endereco' => 'Endereço',
+        'writer' => 'Autor',
+        'page_number' => 'Nº de Páginas'
     ],
 
 ];
